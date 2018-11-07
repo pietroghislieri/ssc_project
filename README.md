@@ -1,4 +1,5 @@
 # ssc_project
+Leonardo Oliveri
 Pietro Ghislieri
 Simone Barattin
 Sara Layachi
