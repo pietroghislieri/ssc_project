@@ -6,6 +6,4 @@ var requestHandler = function(request, response) {
   response.end('Hello World!');
 }
 
-var server = http.createServer(requestHandler);
-server.listen(port);
-console.log("Server started, listening on port", port);
+
