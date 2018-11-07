@@ -1,0 +1,16 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: "Test api"
+  description: Hello World
+  license:
+    name: MIT
+    url: https://github.com/apiaryio/polls-api/blob/master/LICENSE
+host: ssc-project.herokuapp.com
+basePath: /
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
