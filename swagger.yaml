@@ -10,7 +10,43 @@ host: ssc-project.herokuapp.com
 basePath: /
 schemes:
 - https
-consumes:
-- application/json
-produces:
-- application/json
+paths:
+  /home:
+    get:
+      tags:
+        - home
+      summary: page displayed after login
+      description: 'you do a get to display all the informations in the site'
+      operationId: getHome
+      
+           
+      responses:
+        '404':
+          description: Server not found
+     
+    put:
+      tags:
+        - home
+      summary: to delete or to modify a comment or a post
+      description: 'you can submit a comment under a post'
+      operationId: updateHome
+      
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Server not found
+        '405':
+          description: Validation exception
+    
+    post:
+      tags:
+        - home
+      summary: Add a new comment or post 
+      description: 'you can post a post or a comment in the home page'
+      operationId: postHome
+      
+           
+      responses:
+        '405':
+          description: Invalid input
