@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const config = require('./config');
+const routes= require('./app/routes/home');
+const PORT = process.env.PORT || 3000;
 //const User   = require('./app/models/user');
 
 
@@ -22,16 +24,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //app.set('superSecret', config.secret);
 
+routes(app);
 
+app.use('/home',routes);
 
-app.get('/', function(req, res) {
-	res.send('Hello! The API is at /home');
+const server = app.listen(PORT, (error) => {
+  if (error) return console.log(`Error: ${error}`);
+
+  console.log(`Server listening on port ${server.address().port}`);
 });
 
-var apiRoutes= require('./app/routes/home');
-apiRoutes(app);
-app.use('/home',apiRoutes);
-
 module.exports = app;
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
+/*
+app.listen(PORT, () => console.log(`App listening on port ${PORT}`));*/
