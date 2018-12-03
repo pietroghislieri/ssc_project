@@ -1,7 +1,7 @@
 {
   "name": "ssc_project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Leonardo Oliveri Pietro Ghislieri Simone Barattin Sara Layachi Gianluca Giozzet Heroku: https://ssc-project.herokuapp.com/ Apiary: https://app.apiary.io/sscproject/editor",
   "main": "api.js",
   "scripts": {
     "start": "node api.js",
@@ -19,6 +19,8 @@
   "homepage": "https://github.com/pietroghislieri/ssc_project#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
-  }
+    "express": "^4.16.4",
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {}
 }
