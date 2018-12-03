@@ -4,7 +4,7 @@ var examsTable = global.examsTable
 if ( examsTable == null )
 	examsTable = [];
 
-class exam {
+class Exam {
 
 	async save() {
 		let matchingexamId = -1;
@@ -78,4 +78,4 @@ class exam {
 
 };
 
-module.exports = exam;
+module.exports = Exam;
