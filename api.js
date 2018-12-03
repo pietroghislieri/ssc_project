@@ -2,18 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const config = require('./config');
-
-//const User   = require('./app/models/user');
-
+const exam   = require('./app/models/exam');
 
 
-/*var nick =Exam.findOrCreate({
-    id: '1234',
-    name: 'nick', 
-    password: 'nick',
-    admin: true 
+
+var esame =exam.findOrCreate({
+    id: '1',
+    name: 'esame algebra', 
+    data: '20/05/2018' 
   });
-*/
 
 const app = express();
 
@@ -28,6 +25,9 @@ app.get('/', function(req, res) {
 
 
 var homeRoutes= require ('./app/routes/home')
-app.use('/api/home', homeRoutes);
+app.use('/home', homeRoutes);
+
+var examsRoutes = require('./app/routes/exams');
+app.use('/home/exams', examsRoutes);
 
 module.exports = app;

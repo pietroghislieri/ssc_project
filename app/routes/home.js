@@ -3,7 +3,7 @@ var apiRoutes = express.Router();
 
 
 apiRoutes.get('/', function(req, res) {
-		res.json({ message: 'Welcome to the coolest API on earth!' });
+		res.json({ message: 'The exams are in /home/exams' });
 	});
 
 
