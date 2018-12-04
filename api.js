@@ -5,6 +5,7 @@ const config = require('./config');
 const exam   = require('./app/models/exam');
 const assignment = require('./app/models/assignment');
 const student = require('./app/models/student');
+const professor = require('./app/models/professor');
 
 var data_in = new Date();
 var data_fin = new Date();
@@ -30,6 +31,13 @@ var studente =student.findOrCreate({
   surname: 'Vacchi' 
 });
 
+var professore =professor.findOrCreate({
+  id: '1',
+  name: 'Annelise', 
+  surname: 'Defranceschi',
+  admin:true 
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -49,5 +57,8 @@ app.use('/home/assignments', assignmentsRoutes);
 
 var studentRoutes = require('./app/routes/students');
 app.use('/home/students', studentRoutes);
+
+var professorRoutes = require('./app/routes/professors');
+app.use('/home/professors', professorRoutes);
 
 module.exports = app;
