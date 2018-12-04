@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const config = require('./config');
 const exam   = require('./app/models/exam');
 const assignment = require('./app/models/assignment');
+const student = require('./app/models/student');
 
 var data_in = new Date();
 var data_fin = new Date();
@@ -23,11 +24,15 @@ var assignement = assignment.findOrCreate({
     data_fine: data_fin
 })
 
+var studente =student.findOrCreate({
+  id: '1',
+  name: 'Gianluca', 
+  surname: 'Vacchi' 
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//app.set('superSecret', config.secret);
 app.get('/', function(req, res) {
   res.send('Hello! The API is at /home');
 });
@@ -41,5 +46,8 @@ app.use('/home/exams', examsRoutes);
 
 var assignmentsRoutes = require('./app/routes/assignments');
 app.use('/home/assignments', assignmentsRoutes);
+
+var studentRoutes = require('./app/routes/students');
+app.use('/home/students', studentRoutes);
 
 module.exports = app;

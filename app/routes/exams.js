@@ -19,7 +19,6 @@ examsRoutes.route('/')
 		saved = await exam.save()
 		res.status(201).send(saved)
 	}
-	// save the bear and check for errors
 })
 
 examsRoutes.route('/:exam_id')
