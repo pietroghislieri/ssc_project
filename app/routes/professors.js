@@ -16,7 +16,6 @@ professorsRoutes.route('/')
 	else{
 		professor.name = req.body.name;
 		professor.surname = req.body.surname;
-		professor.admin=true;
 		saved = await professor.save()
 		res.status(201).send(saved)
 	}

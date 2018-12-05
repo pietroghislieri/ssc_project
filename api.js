@@ -35,7 +35,6 @@ var professore =professor.findOrCreate({
   id: '1',
   name: 'Annelise', 
   surname: 'Defranceschi',
-  admin:true 
 });
 
 app.use(bodyParser.json());
