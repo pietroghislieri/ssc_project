@@ -44,6 +44,11 @@ app.get('/', function(req, res) {
   res.send('Hello! The API is at /home');
 });
 
+var authenticationRoutes = require('./app/routes/login-docenti');
+app.use('/login-docenti', authenticationRoutes);
+
+var authenticationRoutes = require('./app/routes/login-studenti');
+app.use('/login-studenti', authenticationRoutes);
 
 var homeRoutes= require ('./app/routes/home')
 app.use('/home', homeRoutes);
@@ -57,7 +62,5 @@ app.use('/home/assignments', assignmentsRoutes);
 var studentRoutes = require('./app/routes/students');
 app.use('/home/students', studentRoutes);
 
-var professorRoutes = require('./app/routes/professors');
-app.use('/home/professors', professorRoutes);
 
 module.exports = app;
