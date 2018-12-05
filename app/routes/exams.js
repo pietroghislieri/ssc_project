@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require("jsonwebtoken");
 const Exam   = require('../models/exam');
 
 const examsRoutes = express.Router(); 

@@ -1,5 +1,6 @@
 const express = require('express');
 const Student   = require('../models/student');
+const jwt = require("jsonwebtoken");
 
 const studentsRoutes = express.Router(); 
 
@@ -10,12 +11,13 @@ studentsRoutes.route('/')
 })
 .post(async function (req, res) {
 	var student = new Student();
-	if(req.body.name == undefined || req.body.surname == undefined){
+	if(req.body.name == undefined || req.body.surname == undefined || req.body.password == undefined){
 		res.status(400).send({message: 'Bad syntax: missing parameters'})
 	}
 	else{
 		student.name = req.body.name;
 		student.surname = req.body.surname;
+		student.password= req.body.password;
 		saved = await student.save()
 		res.status(201).send(saved)
 	}

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
+const jwt = require("jsonwebtoken");
 const config = require('./config');
 const exam   = require('./app/models/exam');
 const assignment = require('./app/models/assignment');
@@ -28,13 +29,15 @@ var assignement = assignment.findOrCreate({
 var studente =student.findOrCreate({
   id: '1',
   name: 'Gianluca', 
-  surname: 'Vacchi' 
+  surname: 'Vacchi',
+  password: 'gianlucabello'
 });
 
 var professore =professor.findOrCreate({
   id: '1',
-  name: 'Annelise', 
+  name: 'Anneliese', 
   surname: 'Defranceschi',
+  password: 'annelisebella'
 });
 
 app.use(bodyParser.json());
@@ -50,6 +53,9 @@ app.use('/login-docenti', authenticationRoutes);
 var authenticationRoutes = require('./app/routes/login-studenti');
 app.use('/login-studenti', authenticationRoutes);
 
+var tokenChecker = require('../ssc_project/app/middlewares/tokenChecker');
+app.use(tokenChecker);
+
 var homeRoutes= require ('./app/routes/home')
 app.use('/home', homeRoutes);
 
@@ -62,5 +68,7 @@ app.use('/home/assignments', assignmentsRoutes);
 var studentRoutes = require('./app/routes/students');
 app.use('/home/students', studentRoutes);
 
+var professorRoutes = require('./app/routes/professors');
+app.use('/home/professors', professorRoutes);
 
 module.exports = app;

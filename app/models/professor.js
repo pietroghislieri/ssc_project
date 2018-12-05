@@ -50,6 +50,7 @@ class Professor {
 			return criterias.name == undefined ? true : u.name === criterias.name
 			&&     criterias.id == undefined ? true : u.id === criterias.id
 			&&	   criterias.surname == undefined ? true : u.surname === criterias.surname
+			&&	   criterias.password == undefined ? true : u.password === criterias.password
 		});
 		return matchingProfessors;
 	}

@@ -1,6 +1,6 @@
 const express = require('express');
 const jwt     = require('jsonwebtoken'); // used to create, sign, and verify tokens
-const User   = require('../models/user');
+const User   = require('../models/professor');
 const config = require('../../config'); // get our config file
 
 const authenticationsRoutes = express.Router(); 
@@ -28,7 +28,7 @@ authenticationsRoutes.post('/', async function(req, res) {
 			var payload = {
 				id: user.id,
 				name: user.name,
-				admin: user.admin
+				surname: user.surname
 			}
 			var options = {
 				expiresIn: 86400 // expires in 24 hours
