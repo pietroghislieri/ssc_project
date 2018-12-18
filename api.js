@@ -53,11 +53,11 @@ app.use('/login-docenti', authenticationRoutes);
 var authenticationRoutes = require('./app/routes/login-studenti');
 app.use('/login-studenti', authenticationRoutes);
 
-var tokenChecker = require('../ssc_project/app/middlewares/tokenChecker');
-app.use(tokenChecker);
-
 var homeRoutes= require ('./app/routes/home')
 app.use('/home', homeRoutes);
+
+var tokenChecker = require('../ssc_project/app/middlewares/tokenChecker');
+app.use(tokenChecker);
 
 var examsRoutes = require('./app/routes/exams');
 app.use('/home/exams', examsRoutes);
