@@ -56,7 +56,7 @@ app.use('/login-studenti', authenticationRoutes);
 var homeRoutes= require ('./app/routes/home')
 app.use('/home', homeRoutes);
 
-var tokenChecker = require('../ssc_project/app/middlewares/tokenChecker');
+var tokenChecker = require('./app/middlewares/tokenChecker');
 app.use(tokenChecker);
 
 var examsRoutes = require('./app/routes/exams');
