@@ -8,7 +8,6 @@ it('app module should be defined', () => {
 });  
 
 it('GET / should return 200', async () => {
-    expect.assertions(1)
     var response = await fetch(url)
     expect(response.status).toEqual(200)
 });
