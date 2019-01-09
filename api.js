@@ -30,14 +30,14 @@ var studente =student.findOrCreate({
   id: '1',
   name: 'Gianluca', 
   surname: 'Vacchi',
-  password: 'gianlucabello'
+  password: 'gianluca123'
 });
 
 var professore =professor.findOrCreate({
   id: '1',
   name: 'Anneliese', 
   surname: 'Defranceschi',
-  password: 'annelisebella'
+  password: 'annelise123'
 });
 
 app.use(bodyParser.json());
